@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require_relative '../config/environment.rb'
+
+run_game = CLI.new
+run_game.call
+
+
+
