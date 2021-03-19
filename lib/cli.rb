@@ -10,6 +10,7 @@ class CLI
 
         #greet user
         puts "📈📊-----Welcome to the NYSE Stock Tracker-----📊📈"
+        puts
 
         #get stock ticker 
         get_input
@@ -38,26 +39,31 @@ class CLI
     end
 
     def list_options
-        puts "| 1. Open Price  💵 |"
-        puts "| 2. Close Price 💵 |"
-        puts "| 3. Volume      📊 |"
-        puts "| 4. Index       🗂 |"
-        puts "| 5. Date        ⌚️ |"
+        puts "| 1. Open Price  💵 |".green
+        puts
+        puts "| 2. Close Price 💵 |".green
+        puts
+        puts "| 3. Volume      📊 |".green
+        puts
+        puts "| 4. Index       🗂  |".green
+        puts
+        puts "| 5. Date        ⌚️ |".green
+        puts
     end
 
 
 
     def self.current(current_stock, input)
         if input == 1
-            puts "| The opening price of #{current_stock.name} was $#{current_stock.open_price}"
+            puts "| The opening price of #{current_stock.name} was $#{current_stock.open_price}".green
         elsif input == 2
-            puts "| The closing price of #{current_stock.name} was $#{current_stock.close_price}"
+            puts "| The closing price of #{current_stock.name} was $#{current_stock.close_price}".green
         elsif input == 3
-            puts "| The total volume of #{current_stock.name} was #{current_stock.volume}"
+            puts "| The total volume of #{current_stock.name} was #{current_stock.volume}".green
         elsif input == 4
-            puts "| #{current_stock.name} is in is the #{current_stock.index}"
+            puts "| #{current_stock.name} is in is the #{current_stock.index}".green
         else
-            puts "| This data for #{current_stock.name} is from #{current_stock.date}."
+            puts "| This data for #{current_stock.name} is from #{current_stock.date}.".green
         end
 
         continue(current_stock)
@@ -70,7 +76,7 @@ class CLI
 
         if choice.upcase == "Y"
             CLI.new.menu(current_stock.symbol)
-        else
+        elsif choice.upcase == "N"
             puts "| Would you like to pick a different stock to view? (Y or N)"
             input = gets.chomp
             
@@ -79,6 +85,9 @@ class CLI
             else
                 puts "Happy Trading!"
             end
+        else
+            puts "Please enter Y or N."
+            continue(current_stock)
         end
 
         
