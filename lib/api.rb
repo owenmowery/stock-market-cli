@@ -24,7 +24,6 @@ class API
         resp = RestClient.get("http://api.marketstack.com/v1/eod?access_key=#{ENV['API_KEY']}&symbols=#{ticker}")
         stock_hash = JSON.parse(resp.body, symbolize_names: true)
         stock_array = stock_hash[:data]
-
         current_stock = Stock.all.find {|stock| stock.symbol == ticker}
         current_stock.open_price = stock_array[0][:open]
         current_stock.close_price = stock_array[0][:close]
