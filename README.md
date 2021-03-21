@@ -20,7 +20,7 @@ The user is someone who would like to search a stock by the stock symbol (ex. AA
 
 | 3. Volume      📊 |
 
-| 4. Index       🗂  |
+| 4. Index       🗂 |
 
 | 5. Date        ⌚️ |
 
