@@ -14,8 +14,7 @@ class CLI
 
         #get stock ticker 
         get_input
-
-
+        
     end
 
     def get_input
@@ -31,7 +30,6 @@ class CLI
 
         if !input.to_i.between?(1, 5)
             puts "Enter a valid number."
-            list_options
             menu(ticker_input)
         else
             API.load_stock_details(ticker_input, input)
@@ -82,14 +80,15 @@ class CLI
             
             if input.upcase == "Y"
                 CLI.new.call
-            else
+            elsif input.upcase == "N"
                 puts "Happy Trading!"
+            else
+                puts "Please enter Y or N."
+                continue(current_stock)
             end
         else
-            puts "Please enter Y or N."
+            puts "| Enter Y or N |"
             continue(current_stock)
         end
-
-        
     end
 end

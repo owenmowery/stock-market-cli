@@ -1,12 +1,3 @@
-require 'pry'
-require 'open-uri'
-require 'rest-client'
-require 'net/http'
-require 'json'
-require 'dotenv'
-Dotenv.load 
-require_relative '../lib/stock.rb'
-
 class API
 
     def self.load_stocks
