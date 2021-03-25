@@ -21,8 +21,12 @@ class API
         current_stock.volume = stock_array[0][:volume]
         current_stock.date = stock_array[0][:date]
 
+
         CLI.current(current_stock, input.to_i)
-        
     end
 end 
+
+
+
+
 

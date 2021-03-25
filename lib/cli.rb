@@ -1,7 +1,6 @@
 class CLI
 
     def call
-
         #clear stock instances
         Stock.clear
         
@@ -14,16 +13,17 @@ class CLI
 
         #get stock ticker 
         get_input
-        
     end
 
     def get_input
+        #asks user for stock symbol, menu method gets called and symbol is passed into menu
         puts "🚀🚀-----Enter a stock ticker (ex. AAPL, TSLA): "
         ticker_input = gets.chomp.upcase
         menu(ticker_input)
     end
 
     def menu(ticker_input)
+        #lists data options, prompts user for number input 
         list_options
         puts "Please select a number to access that piece of data:"
         input = gets.chomp
@@ -52,6 +52,7 @@ class CLI
 
 
     def self.current(current_stock, input)
+        #checks input and outputs correct information
         if input == 1
             puts "| The opening price of #{current_stock.name} was $#{current_stock.open_price}".green
         elsif input == 2
@@ -65,10 +66,10 @@ class CLI
         end
 
         continue(current_stock)
-
     end
 
     def self.continue(current_stock)
+        #allows user to continue through the program and access more data and other stocks
         puts "| Would you like to access another piece of data from #{current_stock.name}? (Y or N)"
         choice = gets.chomp
 
