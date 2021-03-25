@@ -6,7 +6,7 @@ class API
         stock_market_hash = JSON.parse(resp.body, symbolize_names: true)
         stock_market_array = stock_market_hash[:data]
 
-        stocks = stock_market_array.collect do |stock|
+        stock_market_array.each do |stock|
             Stock.new(stock)
         end 
     end
